@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  /* Sidebar */
+  --sidebar-bg: #111827;
+  --sidebar-hover: #1f2937;
+  --sidebar-active: #1f2937;
+  --sidebar-border: rgba(255,255,255,0.06);
+  --sidebar-text: #9ca3af;
+  --sidebar-text-active: #ffffff;
+
+  /* Main surface */
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --surface-2: #f9fafb;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  /* Typography */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-faint: #9ca3af;
+
+  /* Brand / accent */
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #e0e7ff;
+
+  /* Risk tiers */
+  --risk-high-bg: #dc2626;
+  --risk-high-text: #ffffff;
+  --risk-med-bg: #dbeafe;
+  --risk-med-text: #1d4ed8;
+  --risk-low-bg: #111827;
+  --risk-low-text: #ffffff;
+
+  /* Action decisions */
+  --action-blocked-bg: #fef2f2;
+  --action-blocked-text: #dc2626;
+  --action-blocked-badge: #dc2626;
+  --action-flagged-bg: #fffbeb;
+  --action-flagged-text: #b45309;
+  --action-flagged-badge: #d97706;
+  --action-passed-bg: #f0fdf4;
+  --action-passed-text: #166534;
+  --action-passed-badge: #16a34a;
+  --action-edited-bg: #f8fafc;
+  --action-edited-text: #475569;
+  --action-edited-badge: #64748b;
+
+  /* Status */
+  --green: #16a34a;
+  --red: #dc2626;
+  --amber: #d97706;
+  --blue: #2563eb;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+/* Decision badges */
+.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.badge-blocked  { background: var(--action-blocked-badge); color: #fff; }
+.badge-flag     { background: var(--action-flagged-badge); color: #fff; }
+.badge-allow    { background: transparent; color: var(--action-passed-badge); border: 1.5px solid var(--action-passed-badge); }
+.badge-edit     { background: transparent; color: var(--action-edited-badge); border: 1.5px solid var(--action-edited-badge); }
+.badge-checking { background: #e5e7eb; color: #6b7280; }
+.badge-overridden { background: #78350f; color: #fef3c7; }
+
+/* Risk badges */
+.risk-high { background: var(--risk-high-bg); color: var(--risk-high-text); font-size: 10px; font-weight: 800; letter-spacing: 0.06em; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; }
+.risk-med  { background: var(--risk-med-bg); color: var(--risk-med-text); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; border: 1px solid #bfdbfe; }
+.risk-low  { background: var(--risk-low-bg); color: var(--risk-low-text); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+
+/* Table */
+.table-row-hover:hover { background: var(--surface-2); }
+
+@keyframes slide-in-top {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide-in { animation: slide-in-top 0.25s ease-out; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse { animation: pulse-dot 1.4s ease-in-out infinite; }
