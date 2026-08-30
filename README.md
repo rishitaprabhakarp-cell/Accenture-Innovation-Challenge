@@ -203,26 +203,4 @@ Seed demo data (runs all 12 samples through the pipeline)
 
 ---
 
-## Roadmap
-
-**Phase 1 (Prototype — complete)**
-- Core checker pipeline (PII, hallucination, bias)
-- Tiered decision engine with configurable policy
-- Audit trail and feedback loop
-- Dashboard with real-time metrics
-
-**Phase 2 (Production hardening)**
-- LLM-as-judge secondary evaluation for ambiguous cases
-- PostgreSQL persistent audit store
-- Webhook/event streaming for real-time integration
-- Geo-aware policy profiles (GDPR, CCPA, DPDPA)
-
-**Phase 3 (Enterprise scale)**
-- Custom checker plugin SDK
-- SOC 2 audit export
-- Multi-tenant policy isolation
-- Regulatory change feed with automated policy update suggestions
-
----
-
 *Built for the Accenture Innovation Challenge · Round 2*
